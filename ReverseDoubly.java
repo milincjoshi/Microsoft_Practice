@@ -1,3 +1,7 @@
+/*
+	Q: 			Reverse a Doubly LinkedList
+	Approach:	Use a temp pointer to switch prev and next for current node.
+*/
 public class ReverseDoubly{
 	
 	static class LinkedList{

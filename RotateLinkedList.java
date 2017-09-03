@@ -1,3 +1,9 @@
+/*
+	Q: 		Rotate a LinkedList.
+	Approach:	Make a pointer reach to the k-1 th elemennt, the next node will be the head and current will be tail.
+				Make current.next = null and next node: head
+*/
+
 public class RotateLinkedList{
 	
 	static class LinkedList{

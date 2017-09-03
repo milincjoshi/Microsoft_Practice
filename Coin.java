@@ -1,9 +1,15 @@
-public class Coin{
-	//implement dfs
-	//push to stack while raversing
-	//print stack when 0
-	// pop when traversing back
 
+/*
+	Q: Find all possible combinations that make kth amount form given coins.
+	Approach:	implement dfs
+				push to stack while raversing
+				print stack when 0
+				pop when traversing back
+
+*/
+
+public class Coin{
+	
 	static class Stack{
 		Node top;
 		class Node{
