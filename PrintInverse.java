@@ -60,6 +60,8 @@ public class PrintInverse{
 		Queue.QueueNode cur = q.start;
 		Queue.QueueNode breaker = cur;
 		
+		boolean normal = false;
+
 		System.out.println(breaker.data.data);
 		while(cur != null){
 
@@ -74,13 +76,32 @@ public class PrintInverse{
 			}
 			
 			if(cur == breaker){
-				breaker = q.end;
-				Queue.QueueNode temp = cur.next;
-				while(temp != breaker.next){
-					System.out.print(temp.data.data+",");
-					temp = temp.next;
+				
+				if(normal){
+					normal = false;
+					
+					breaker = q.end;
+					Queue.QueueNode temp = cur.next;
+					while(temp != breaker.next){
+						System.out.print(temp.data.data+",");
+						temp = temp.next;
+					}
+					System.out.println();
+
 				}
-				System.out.println();
+				else{
+					normal = true;
+					
+					breaker = q.end;
+					// Queue.QueueNode temp = cur.next;
+					// while(temp != breaker.next){
+					// 	System.out.print(temp.data.data+",");
+					// 	temp = temp.next;
+					// }
+					tempPrinter(cur.next, breaker);
+					System.out.println();
+				}
+
 			}
 
 			cur = cur.next;
@@ -88,7 +109,15 @@ public class PrintInverse{
 
 	}
 
+	public static void tempPrinter(Queue.QueueNode q, Queue.QueueNode end){
+		if(q == end){
+			System.out.print(q.data.data+",");
+			return;
+		}
+		tempPrinter(q.next, end);
+		System.out.print(q.data.data+",");
 
+	}
 	public static void printTreeInorder(Tree.TreeNode t){
 		if(t == null){
 			return;
@@ -117,11 +146,14 @@ public class PrintInverse{
 		//
 		tree.root.left.left.left = tree.new TreeNode(1);
 		tree.root.left.left.right = tree.new TreeNode(3);
+		
 		tree.root.left.right.left = tree.new TreeNode(5);
 		tree.root.left.right.right = tree.new TreeNode(7);
+		
 		tree.root.right.left.left = tree.new TreeNode(9);
-		tree.root.right.right.right = tree.new TreeNode(11);
-		tree.root.right.left.left = tree.new TreeNode(13);
+		tree.root.right.left.right = tree.new TreeNode(11);
+		
+		tree.root.right.right.left = tree.new TreeNode(13);
 		tree.root.right.right.right = tree.new TreeNode(16);
 		
 		printTreeInorder(tree.root);
